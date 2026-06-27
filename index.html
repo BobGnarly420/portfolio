@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Evelyn Campbell — Research &amp; Work</title>
 <meta name="description" content="Independent research portfolio — computational neuroscience, dynamical systems, music." />
+<link rel="icon" type="image/svg+xml" href="glyph-mark.svg" />
+<meta property="og:title" content="Evelyn Campbell — Research &amp; Work" />
+<meta property="og:description" content="Independent research portfolio — computational neuroscience, dynamical systems, music." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="fig1_acute_da.png" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,23 +20,26 @@
       <img src="glyph-mark.svg" alt="" />
       <span class="brand-name">Evelyn Campbell</span>
     </div>
-    <nav class="site-nav">
-      <a href="#meth-model">Research</a>
-      <a href="#nde">Models</a>
-      <a href="#music">Music</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="nav-wrap">
+      <nav class="site-nav">
+        <a href="#meth-model">Research</a>
+        <a href="#nde">Models</a>
+        <a href="#music">Music</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="kg-btn kg-btn--ghost theme-toggle" type="button" aria-label="Toggle light and dark mode">MODE: DARK</button>
+    </div>
   </div>
 </header>
 
-<section class="hero">
+<section class="hero kg-grid-bg">
   <div class="wrap">
     <p class="kicker">Independent Researcher — Neuroscience × Computation</p>
     <h1>Evelyn Campbell</h1>
     <p class="lead">Computational models of perturbed neural dynamics — substance pharmacology, neurodivergence,
       and the boundary conditions of coherent cognition. Interdisciplinary work spanning dynamical systems,
       reinforcement learning, and music.</p>
-    <p class="prompt">&gt; selected work below_</p>
+    <p class="prompt">&gt; selected work below<span class="kg-cursor" aria-hidden="true"></span></p>
   </div>
 </section>
 
@@ -140,5 +148,25 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var theme = localStorage.getItem('kg-theme') || 'dark';
+  function apply(t) {
+    if (t === 'light') { root.setAttribute('data-theme', 'light'); }
+    else { root.removeAttribute('data-theme'); }
+    if (btn) { btn.textContent = 'MODE: ' + t.toUpperCase(); }
+  }
+  apply(theme);
+  if (btn) {
+    btn.addEventListener('click', function () {
+      theme = theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('kg-theme', theme);
+      apply(theme);
+    });
+  }
+})();
+</script>
 </body>
 </html>
