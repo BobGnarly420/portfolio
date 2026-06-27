@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evelyn Campbell — Research &amp; Work</title>
+<meta name="description" content="Independent research portfolio — computational neuroscience, dynamical systems, music." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <img src="glyph-mark.svg" alt="" />
+      <span class="brand-name">Evelyn Campbell</span>
+    </div>
+    <nav class="site-nav">
+      <a href="#meth-model">Research</a>
+      <a href="#nde">Models</a>
+      <a href="#music">Music</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Independent Researcher — Neuroscience × Computation</p>
+    <h1>Evelyn Campbell</h1>
+    <p class="lead">Computational models of perturbed neural dynamics — substance pharmacology, neurodivergence,
+      and the boundary conditions of coherent cognition. Interdisciplinary work spanning dynamical systems,
+      reinforcement learning, and music.</p>
+    <p class="prompt">&gt; selected work below_</p>
+  </div>
+</section>
+
+<section class="section" id="meth-model">
+  <div class="wrap">
+    <div class="panel kg-frame">
+      <span class="kg-frame__title">01 — Computational Model</span>
+      <div class="section-head">
+        <h2>Methamphetamine Perturbations in<br/>Neurodivergent Reward &amp; Arousal Networks</h2>
+        <span class="kg-badge kg-badge--orange"><span class="dot"></span>In submission</span>
+      </div>
+      <div class="meta-line">Campbell, E. (2026) · Preprint manuscript</div>
+      <p>Stimulant medication for ADHD shares core pharmacology with methamphetamine, yet the two are clinically
+        opposite in outcome. This model couples terminal dopamine kinetics, temperature-dependent oxidative
+        toxicity, locus-coeruleus gain control, and reinforcement learning across timescales from milliseconds
+        to months, parameterized for neurotypical and two ADHD architectures.</p>
+      <p>It identifies temperature — not extracellular dopamine — as the dominant bifurcation variable for
+        neurotoxicity, explains why sleep loss amplifies stimulant reinforcement, predicts that ADHD-Combined
+        architectures inflate drug value faster than neurotypical ones while ADHD-Inattentive architectures
+        benefit more from low-dose therapeutics, and reproduces the chronic-use tolerance trajectory seen in
+        PET imaging.</p>
+      <div class="fig-grid">
+        <figure>
+          <img src="fig1_acute_da.png" alt="Acute dopamine response figure" />
+          <figcaption>Fig 1 — Acute dopaminergic response</figcaption>
+        </figure>
+        <figure>
+          <img src="fig2_temperature.png" alt="Temperature-dependent toxicity figure" />
+          <figcaption>Fig 2 — Temperature-dependent oxidative toxicity</figcaption>
+        </figure>
+        <figure>
+          <img src="fig3_rl_trajectories.png" alt="Reinforcement learning trajectories figure" />
+          <figcaption>Fig 3 — RL trajectories by architecture</figcaption>
+        </figure>
+      </div>
+      <div class="btn-row">
+        <a class="kg-btn kg-btn--primary" href="campbell_2026_meth_neurodiv_v2.pdf">Read the manuscript (PDF)</a>
+        <a class="kg-btn kg-btn--data" href="https://doi.org/10.5281/ZENODO.19625787">Code archive — Zenodo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nde">
+  <div class="wrap">
+    <div class="panel kg-frame">
+      <span class="kg-frame__title">02 — Exploratory Model</span>
+      <div class="section-head">
+        <h2>Near-Death Experience as a<br/>Near-Criticality Phenomenon</h2>
+        <span class="kg-badge kg-badge--cyan"><span class="dot"></span>Exploratory</span>
+      </div>
+      <div class="meta-line">Dynamical-systems experiment · not evidence about real human NDEs</div>
+      <p>Tests whether Ω = (representational restructuring) / (identity / coherence loss) has an interior
+        maximum along the ridge where the largest Lyapunov exponent λ<sub>max</sub> ≈ 0 — between order and
+        chaos. A 128-unit rate network was driven across the order-to-chaos transition (Sompolinsky–Crisanti–Sommers
+        gain route), with coherence measured as long-range mutual information of a low-D self-model and
+        restructuring gated for reproducibility.</p>
+      <table class="kg-table">
+        <thead>
+          <tr><th>Quantity</th><th>Ordered (λ&lt;-0.1)</th><th>Near-critical (|λ|≤0.05)</th><th>Chaos (λ&gt;0.1)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Long-range coherence C@Δ=40</td><td>0.29</td><td class="hl">3.23</td><td>1.93</td></tr>
+          <tr><td>Structured restructuring</td><td>0.04</td><td class="hl">0.27</td><td>0.26</td></tr>
+          <tr><td>Ω* = struct-R × long-coherence</td><td>0.01</td><td class="hl">0.85</td><td>0.52</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Verdict: supported, under load-bearing operationalizations.</strong> The hypothesis fails under
+        naive measures (short-lag coherence, raw perturbation-sensitivity) and only holds once coherence is
+        measured at long temporal range and restructuring is gated for reproducibility against noise. λ≈0 is a
+        robust local optimum of structured reorganization with retained coherence — whether it is the global
+        optimum depends on exactly those two assumptions, which are defensible but not free.</p>
+      <div class="fig-grid">
+        <figure>
+          <img src="nde_criticality.png" alt="NDE criticality four-panel summary figure" />
+          <figcaption>4-panel summary — λ<sub>max</sub> sweep, coherence, restructuring, Ω band test</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="music">
+  <div class="wrap">
+    <div class="panel kg-frame">
+      <span class="kg-frame__title">03 — Music</span>
+      <div class="section-head">
+        <h2>Music</h2>
+        <span class="kg-badge kg-badge--magenta"><span class="dot"></span>129 tracks</span>
+      </div>
+      <p>Midwest emo, pluggnb, math rock, indie rock, post hardcore — released under <strong>EV</strong> on Suno.</p>
+      <div class="btn-row">
+        <a class="kg-btn kg-btn--primary" href="https://suno.com/@evevev">Listen — @evevev on Suno</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer section" id="contact">
+  <div class="wrap">
+    <p class="meta-line" style="margin-bottom: var(--sp-2);">Contact</p>
+    <p><a href="mailto:robolution789@gmail.com">robolution789@gmail.com</a></p>
+  </div>
+  <div class="kg-keybar">
+    <span class="kg-key"><span class="kg-key__cap">EV</span> Evelyn Campbell — Independent Researcher</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* ============================================================
+   KAIRO-GLYPH — WEBFONTS
+   The Technical Driver: JetBrains Mono (monospace, data/terminal)
+   The System Interface: Inter (geometric sans, metadata/labels)
+   Loaded via Google Fonts CDN. See readme.md caveat on self-hosting.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Inter:wght@400;500;600;700&family=VT323&display=swap');
+
+/* ---- EGA BIOS — the icon / pixel-glyph driver ----
+   IBM EGA BIOS bitmap font (int10h.org Oldschool PC Font Pack).
+   Binary supplied by the user: WebPlus IBM EGA 9x8. See readme §ICONOGRAPHY. */
+@font-face {
+  font-family: 'EGA BIOS';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./WebPlus_IBM_EGA_9x8.woff') format('woff');
+}

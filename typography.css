@@ -1,0 +1,54 @@
+/* ============================================================
+   KAIRO-GLYPH — TYPOGRAPHY
+   Rigid, uniform. Mono drives data/terminal; sans for system labels.
+   ============================================================ */
+:root {
+  /* ---- Families ---- */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', ui-monospace, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+  /* The icon / pixel-glyph driver — IBM EGA BIOS, VT323 stand-in, monospace floor */
+  --font-icon: 'EGA BIOS', 'VT323', 'JetBrains Mono', monospace;
+
+  /* The Technical Driver = mono; The System Interface = sans */
+  --font-data: var(--font-mono);
+  --font-system: var(--font-sans);
+
+  /* ---- Type scale (rem-based, 1rem = 16px) ---- */
+  --fs-micro: 0.6875rem;   /* 11px — node labels, axis ticks */
+  --fs-caption: 0.75rem;   /* 12px — captions, log timestamps */
+  --fs-label: 0.8125rem;   /* 13px — system sub-labels */
+  --fs-body: 0.9375rem;    /* 15px — terminal body, table cells */
+  --fs-base: 1rem;         /* 16px */
+  --fs-lead: 1.125rem;     /* 18px — lead paragraphs */
+  --fs-h4: 1.375rem;       /* 22px */
+  --fs-h3: 1.75rem;        /* 28px */
+  --fs-h2: 2.25rem;        /* 36px */
+  --fs-h1: 3rem;           /* 48px */
+  --fs-display: 4.25rem;   /* 68px — metric magnification */
+
+  /* ---- Weights ---- */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500;  /* @kind font */
+  --fw-bold: 700;    /* @kind font */
+  --fw-black: 800;   /* @kind font */
+
+  /* ---- Line heights ---- */
+  --lh-tight: 1.05;  /* @kind font */
+  --lh-snug: 1.25;   /* @kind font */
+  --lh-normal: 1.5;  /* @kind font */
+  --lh-loose: 1.7;   /* @kind font */
+
+  /* ---- Letter-spacing ---- */
+  --ls-header: 0.05em;    /* SYSTEM HEADER caps spacing */
+  --ls-wide: 0.12em;      /* eyebrow / kicker labels */
+  --ls-normal: 0; /* @kind font */
+  --ls-tight: -0.01em;    /* large display */
+
+  /* ---- Semantic roles ---- */
+  --text-display: var(--fw-black) var(--fs-display)/var(--lh-tight) var(--font-mono);
+  --text-h1: var(--fw-bold) var(--fs-h1)/var(--lh-tight) var(--font-mono);
+  --text-h2: var(--fw-bold) var(--fs-h2)/var(--lh-snug) var(--font-mono);
+  --text-h3: var(--fw-bold) var(--fs-h3)/var(--lh-snug) var(--font-mono);
+  --text-body: var(--fw-regular) var(--fs-body)/var(--lh-normal) var(--font-mono);
+  --text-system-label: var(--fw-medium) var(--fs-label)/var(--lh-snug) var(--font-sans);
+}

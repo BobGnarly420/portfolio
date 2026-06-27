@@ -1,0 +1,228 @@
+/* ============================================================
+   EVELYN CAMPBELL — PORTFOLIO
+   Built on the Kairo-Glyph design system tokens (tokens/*.css).
+   This file: global entry + page-specific layout/components.
+   ============================================================ */
+@import url("fonts.css");
+@import url("colors.css");
+@import url("typography.css");
+@import url("spacing.css");
+@import url("effects.css");
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--void);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+}
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+
+/* ---- Header ---- */
+.site-header {
+  border-bottom: var(--border);
+  padding: var(--sp-5) 0;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.brand img { height: 28px; width: auto; }
+.brand-name {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+nav.site-nav {
+  display: flex;
+  gap: var(--sp-5);
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+nav.site-nav a { color: var(--text-secondary); }
+nav.site-nav a:hover { color: var(--cyan); text-decoration: none; }
+
+/* ---- Hero ---- */
+.hero {
+  padding: var(--sp-9) 0 var(--sp-8);
+}
+.hero .kicker {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 var(--sp-3);
+}
+.hero h1 {
+  font: var(--text-h1);
+  margin: 0 0 var(--sp-4);
+  color: var(--text-primary);
+  letter-spacing: var(--ls-tight);
+}
+.hero p.lead {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0;
+}
+.hero .prompt {
+  margin-top: var(--sp-5);
+  color: var(--cyan);
+  font-size: var(--fs-body);
+}
+
+/* ---- Section scaffolding ---- */
+.section {
+  padding: var(--sp-8) 0;
+  border-top: var(--border);
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  flex-wrap: wrap;
+}
+.section-head h2 {
+  font: var(--text-h2);
+  margin: 0;
+  letter-spacing: var(--ls-tight);
+}
+
+/* ---- Status badge (hand-rolled, no JS bundle dependency) ---- */
+.kg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  border: var(--bw-hair) solid var(--border-strong);
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.kg-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+}
+.kg-badge--cyan    { color: var(--cyan);    background: var(--cyan-08);    border-color: var(--cyan); }
+.kg-badge--orange  { color: var(--orange);  background: var(--orange-08);  border-color: var(--orange); }
+.kg-badge--magenta { color: var(--magenta); background: var(--magenta-08); border-color: var(--magenta); }
+.kg-badge--muted   { color: var(--text-muted); }
+
+/* ---- Buttons (hand-rolled) ---- */
+.kg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  border: var(--bw-hair) solid var(--border-strong);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-normal);
+  cursor: pointer;
+}
+.kg-btn:hover { text-decoration: none; }
+.kg-btn--primary  { border-color: var(--magenta); color: var(--magenta); }
+.kg-btn--primary:hover  { background: var(--magenta-08); box-shadow: var(--glow-magenta); }
+.kg-btn--data     { border-color: var(--cyan); color: var(--cyan); }
+.kg-btn--data:hover     { background: var(--cyan-08); box-shadow: var(--glow-cyan); }
+.kg-btn--ghost    { color: var(--text-secondary); border-color: var(--border-faint); }
+.kg-btn--ghost:hover    { color: var(--text-primary); border-color: var(--border-strong); }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-5); }
+
+/* ---- Project panel ---- */
+.panel {
+  padding: var(--sp-6);
+  margin-bottom: var(--sp-2);
+}
+.panel p { color: var(--text-secondary); max-width: 880px; }
+.panel .meta-line {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-4);
+}
+
+/* ---- Result table ---- */
+table.kg-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--sp-5) 0;
+  font-size: var(--fs-caption);
+}
+table.kg-table th, table.kg-table td {
+  border: var(--bw-hair) solid var(--border-faint);
+  padding: var(--sp-2) var(--sp-3);
+  text-align: left;
+}
+table.kg-table th {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--text-muted);
+  font-weight: var(--fw-medium);
+}
+table.kg-table td.hl { color: var(--cyan); }
+
+/* ---- Figure grid ---- */
+.fig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+.fig-grid figure {
+  margin: 0;
+  border: var(--border);
+  background: var(--surface-1);
+}
+.fig-grid img { width: 100%; }
+.fig-grid figcaption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+  padding: var(--sp-2) var(--sp-3);
+  border-top: var(--border);
+}
+
+/* ---- Footer / keybar ---- */
+.site-footer .wrap { padding: var(--sp-5) var(--sp-6); }
+.site-footer {
+  margin-top: var(--sp-6);
+}
+.site-footer a { color: var(--text-secondary); }
+.site-footer a:hover { color: var(--cyan); }

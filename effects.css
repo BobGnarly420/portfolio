@@ -1,0 +1,155 @@
+/* ============================================================
+   KAIRO-GLYPH — STRUCTURAL CHROME & HARDWARE EMULATION
+   Box-drawing panel frames, keybind bars, telemetry grids, bloom,
+   block cursor. The "hardware veil" is now structural — CP437 /
+   UEFI-setup group boxes — not a faked CRT scanline buzz.
+   ============================================================ */
+
+/* ---- BIOS / Roguelike Panel Frame ----
+   A titled, double-ruled group box: hard corners, a second inset
+   hairline, and a title that notches the top border. This is the
+   Caves-of-Qud / UEFI-setup chrome that signals "hardware terminal". */
+.kg-frame {
+  position: relative;
+  background: var(--surface-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 0;
+}
+.kg-frame::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--border-faint);
+  pointer-events: none;
+  z-index: 1;
+}
+.kg-frame__title {
+  position: absolute;
+  top: 0;
+  left: var(--sp-4);
+  transform: translateY(-50%);
+  z-index: 2;
+  padding: 0 var(--sp-2);
+  background: var(--void);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+/* Frame accent is RESERVED for whole-panel STATE, never categorical
+   decoration: a panel is framed red only when it is in fault, green only
+   when fully nominal. Default frames stay neutral so hue inside the panel
+   keeps its meaning (cyan=data, orange=active, magenta=focus). */
+.kg-frame--red    { border-color: var(--red); }
+.kg-frame--red    > .kg-frame__title { color: var(--red);   text-shadow: var(--glow-red); }
+.kg-frame--green  { border-color: var(--green); }
+.kg-frame--green  > .kg-frame__title { color: var(--green); text-shadow: var(--glow-green); }
+
+/* ---- Keybind Hint Bar ----
+   The BIOS / roguelike footer: inverted key caps + action labels,
+   e.g.  [F1] HELP   [F2] SCAN   [F10] COMMIT. */
+.kg-keybar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--obsidian);
+  border-top: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.kg-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.kg-key__cap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7em;
+  padding: 1px 6px;
+  background: var(--cyan);
+  color: var(--text-on-accent);
+  font-weight: 700;
+}
+.kg-key--act  .kg-key__cap { background: var(--magenta); }
+.kg-key--warn .kg-key__cap { background: var(--orange); }
+
+/* ---- The Telemetry Grid background ----
+   Faint coordinate grid behind interface elements. */
+.kg-grid-bg {
+  background-color: var(--void);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+.kg-grid-bg--fine {
+  background-size: 16px 16px;
+}
+
+/* ---- Bloom / glow text ---- */
+.kg-bloom-cyan    { color: var(--cyan);    text-shadow: var(--glow-cyan); }
+.kg-bloom-orange  { color: var(--orange);  text-shadow: var(--glow-orange); }
+.kg-bloom-magenta { color: var(--magenta); text-shadow: var(--glow-magenta); }
+.kg-bloom-red     { color: var(--red);     text-shadow: var(--glow-red); }
+.kg-bloom-green   { color: var(--green);   text-shadow: var(--glow-green); }
+
+/* ---- The Insight Glow Anchor ----
+   3px bright vertical accent line on the left of an inner panel.
+   Defaults to magenta (the focus colour). */
+.kg-anchor {
+  border-left: var(--bw-anchor) solid var(--magenta);
+  box-shadow: -1px 0 12px -2px var(--magenta);
+  padding-left: var(--sp-4);
+}
+.kg-anchor--cyan    { border-left-color: var(--cyan);    box-shadow: -1px 0 12px -2px var(--cyan); }
+.kg-anchor--orange  { border-left-color: var(--orange);  box-shadow: -1px 0 12px -2px var(--orange); }
+.kg-anchor--green   { border-left-color: var(--green);   box-shadow: -1px 0 12px -2px var(--green); }
+.kg-anchor--red     { border-left-color: var(--red);     box-shadow: -1px 0 12px -2px var(--red); }
+
+/* ---- The Block Cursor ----
+   Flashing solid block instead of a thin hairline. */
+.kg-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 0.1em;
+  vertical-align: text-bottom;
+  background: var(--magenta);
+  box-shadow: var(--glow-magenta);
+  animation: kg-blink 1.05s steps(1) infinite;
+}
+@keyframes kg-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-cursor { animation: none; }
+}
+
+/* ---- EGA-BIOS pixel glyph icons ----
+   The brand icon system is CP437 glyphs in the EGA BIOS font.
+   Wrap any unicode glyph in .kg-icon to render it pixel-crisp. */
+.kg-icon {
+  font-family: var(--font-icon);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  speak: none;
+}
+.kg-icon--lg { font-size: 1.5em; }
